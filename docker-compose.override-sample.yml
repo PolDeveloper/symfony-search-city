@@ -1,0 +1,6 @@
+services:
+  search_city:
+    restart: "no"
+    ports:
+      - "90:80"
+      - "500:443"
