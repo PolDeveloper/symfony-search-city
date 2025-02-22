@@ -14,5 +14,5 @@ use Symfony\Component\Validator\Constraint;
  */
 class RequiredIfStreetIsProvided extends Constraint
 {
-    public $message = 'The street is provided so please insert the postcode too.';
+    public string $message = 'The street is provided so please insert the postcode too.';
 }

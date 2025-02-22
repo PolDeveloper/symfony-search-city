@@ -17,3 +17,4 @@
 - `composer install`
 - run tests -> `php bin/phpunit tests`
 - run php-cs-fixer `php vendor/bin/php-cs-fixer fix src/`
+- run phpstan `php vendor/bin/phpstan`
