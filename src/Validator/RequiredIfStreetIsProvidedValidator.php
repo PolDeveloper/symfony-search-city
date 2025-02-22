@@ -4,11 +4,10 @@ namespace App\Validator;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
-use Symfony\Component\Validator\Exception\UnexpectedValueException;
 
 class RequiredIfStreetIsProvidedValidator extends ConstraintValidator
 {
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof RequiredIfStreetIsProvided) {
             throw new UnexpectedTypeException($constraint, RequiredIfStreetIsProvided::class);

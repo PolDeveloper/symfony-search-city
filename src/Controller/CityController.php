@@ -3,34 +3,33 @@
 namespace App\Controller;
 
 use App\Entity\SearchCity;
+use App\Service\CityService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Form\Type\SearchCityType;
-use App\Entity\City;
+use Symfony\Component\Routing\Attribute\Route;
 
 class CityController extends AbstractController
 {
-    public function search(Request $request): Response
+    #[Route('/', name: 'app_lucky_number', methods: ['GET', 'POST'])]
+    public function search(Request $request, CityService $cityService): Response
     {
-        $search = new SearchCity();
+        $searchCity = new SearchCity();
 
-        $form = $this->createForm(SearchCityType::class, $search);
+        $form = $this->createForm(SearchCityType::class, $searchCity);
 
         $form->handleRequest($request);
 
-        $showResults = false;
         $cities = [];
         if ($form->isSubmitted() && $form->isValid()) {
-            $city = $form->getData()->getCity();
-            $cities = (new City)->searchForCity($city);
-            $showResults = true;
+            $cities = $cityService->searchForCity($searchCity->getCity());
         }
 
         return $this->render('city/search.html.twig', [
             'form' => $form,
             'cities' => $cities,
-            'showResults' => $showResults
+            'showResults' => count($cities) > 0,
         ]);
     }
 }

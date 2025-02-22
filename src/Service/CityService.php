@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Entity;
+namespace App\Service;
 
-class City
+class CityService
 {
+    /**
+     * @return string[]
+     */
     private function dataCities(): array
     {
         return [
@@ -19,11 +22,15 @@ class City
         ];
     }
 
+    /**
+     * @param string $searchCity
+     * @return array
+     */
     public function searchForCity(string $searchCity): array
     {
         $results = [];
         foreach ($this->dataCities() as $city) {
-            if (strpos($city, $searchCity) !== false) {
+            if (str_contains($city, $searchCity)) {
                 $results[] = $city;
             }
         }
