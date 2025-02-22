@@ -24,12 +24,13 @@ class CityController extends AbstractController
         $cities = [];
         if ($form->isSubmitted() && $form->isValid()) {
             $cities = $cityService->searchForCity($searchCity->getCity());
+            $showResults = true;
         }
 
         return $this->render('city/search.html.twig', [
             'form' => $form,
             'cities' => $cities,
-            'showResults' => count($cities) > 0,
+            'showResults' => $showResults ?? false,
         ]);
     }
 }

@@ -3,7 +3,47 @@
 {% block body %}
     <div class="container">
         <h1 class="my-5">Search City</h1>
-        {{ form(form) }}
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-5">
+                <div class="form-control">
+                    {{ form_label(form.city) }}
+                    {{ form_widget(form.city) }}
+                    <small>{{ form_help(form.city) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.city) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="form-control">
+                    {{ form_label(form.street) }}
+                    {{ form_widget(form.street) }}
+                    <small>{{ form_help(form.street) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.street) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-5">
+                <div class="form-control">
+                    {{ form_label(form.postcode) }}
+                    {{ form_widget(form.postcode) }}
+                    <small>{{ form_help(form.postcode) }}</small>
+                    <div class="form-error">
+                        {{ form_errors(form.postcode) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            {{ form_errors(form) }}
+        </div>
+        {{ form_end(form) }}
         <div class="my-5">
             {% if (showResults) %}
                 {% if (cities|length > 0) %}

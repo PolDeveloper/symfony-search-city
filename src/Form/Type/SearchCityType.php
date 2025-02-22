@@ -32,7 +32,7 @@ class SearchCityType extends AbstractType
                       'placeholder' => 'XX-XXX'
                   )
             ))
-            ->add('Search', SubmitType::class)
+            ->add('Search', SubmitType::class, ['attr' => ['class' => 'btn btn-success']])
             ->setRequired(false)
         ;
         $builder->get('city')
