@@ -38,10 +38,10 @@ class SearchCityType extends AbstractType
         $builder->get('city')
             ->addModelTransformer(new CallbackTransformer(
                 function ($ucFirst) {
-                    return ucfirst(strtolower($ucFirst));
+                    return ucfirst(strtolower($ucFirst ?? ''));
                 },
                 function ($ucFirst) {
-                   return ucfirst(strtolower($ucFirst));
+                   return ucfirst(strtolower($ucFirst ?? ''));
                 }
             ))
         ;

@@ -4,9 +4,6 @@ namespace App\Controller;
 
 use App\Entity\SearchCity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Form\Type\SearchCityType;
@@ -30,7 +27,7 @@ class CityController extends AbstractController
             $showResults = true;
         }
 
-        return $this->renderForm('city/search.html.twig', [
+        return $this->render('city/search.html.twig', [
             'form' => $form,
             'cities' => $cities,
             'showResults' => $showResults
