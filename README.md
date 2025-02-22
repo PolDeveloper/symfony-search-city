@@ -14,3 +14,5 @@
 - connect to docker service
 - `composer install`
 - run tests -> `php bin/phpunit tests`
+## TODO
+- add cs-fixer

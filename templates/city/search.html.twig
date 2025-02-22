@@ -47,14 +47,18 @@
         <div class="my-5">
             {% if (showResults) %}
                 {% if (cities|length > 0) %}
-                    <h1>Results:</h1>
-                    <ul>
-                        {% for city in cities %}
-                            <li>{{ city }}</li>
-                        {% endfor %}
-                    </ul>
+                    <div class="alert alert-success">
+                        <h3>Results:</h3>
+                        <ul>
+                            {% for city in cities %}
+                                <li>{{ city }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 {% else %}
-                    -- No results --
+                    <div class="alert alert-warning">
+                        -- No results --
+                    </div>
                 {% endif %}
             {% endif %}
         </div>

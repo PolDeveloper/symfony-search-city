@@ -4,9 +4,9 @@ namespace App\Entity;
 
 class SearchCity
 {
-    protected $city;
-    protected $street;
-    protected $postcode;
+    protected string $city;
+    protected ?string $street = null;
+    protected ?string $postcode = null;
 
     public function getCity(): string
     {
@@ -23,18 +23,18 @@ class SearchCity
         return $this->street;
     }
 
-    public function setStreet(string $street): void
+    public function setStreet(?string $street): void
     {
         $this->street = $street;
     }
 
-    public function getPostcode(): string
+    public function getPostcode(): ?string
     {
         return $this->postcode;
     }
 
-    public function setPostcode(string $postcode): void
+    public function setPostcode(?string $postcode): void
     {
         $this->postcode = $postcode;
-    }    
+    }
 }
