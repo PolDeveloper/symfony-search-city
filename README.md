@@ -15,6 +15,9 @@
 - `docker compose up -d`
 - connect to docker service
 - `composer install`
+- open `https://localhost:xxx/` -> xxx is your port from docker-compose.override.yml
+
+
 - run tests -> `php bin/phpunit tests`
 - run php-cs-fixer `php vendor/bin/php-cs-fixer fix src/`
 - run phpstan `php vendor/bin/phpstan`

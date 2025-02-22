@@ -5,7 +5,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # PHP Extensions install
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y libicu-dev nano  zip unzip --no-install-recommends  \
-    && rm -r /var/lib/apt/lists/*
+    && rm -r /var/lib/apt/lists/* \
+    && docker-php-ext-install opcache intl
 
 
 FROM php AS php-with-security-update
