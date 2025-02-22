@@ -5,9 +5,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # PHP Extensions install
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get install -y libicu-dev nano  zip unzip --no-install-recommends  \
-    && rm -r /var/lib/apt/lists/*  \
-    && docker-php-ext-install pdo pdo_mysql opcache intl
-
+    && rm -r /var/lib/apt/lists/*
 
 
 FROM php AS php-with-security-update
@@ -22,10 +20,6 @@ FROM php-with-security-update AS php-with-composer
 # hadolint ignore=DL3022
 ENV COMPOSER_ALLOW_SUPERUSER=1
 COPY --from=composer:2.7 /usr/bin/composer /usr/local/bin/composer
-
-# commit version to env
-ARG COMMIT_SHA=1
-ENV COMMIT_SHA=${COMMIT_SHA}
 
 FROM php-with-composer AS php-conf
 
@@ -46,14 +40,6 @@ FROM php-conf AS php-with-code
 COPY --chown=www-data:www-data ./ /var/www/html/
 WORKDIR /var/www/html/
 
-FROM php-with-code AS php-prod
-RUN mkdir "/var/www/cert/"
-# hadolint ignore=SC1091
-#RUN  echo "$RSA_PUBLIC" > /var/www/cert/rsa.public \
-#    && echo "$RSA_PRIVATE" > /var/www/cert/rsa.private
-RUN --mount=type=secret,id=env_local cat /run/secrets/env_local > .env.local \
-    && composer install -a --no-dev
-
 FROM php-with-composer  AS php-dev
 
 # Enable apache rewrite
@@ -68,7 +54,7 @@ COPY ./docker_file/apache/ssl.key /etc/apache2/ssl/ssl.key
 #a2enmod headers <- especially for iframe because session don't work by default in iframe and why must edit header Header edit Set-Cookie ^(.*)$ $1;Secure;SameSite=None
 RUN a2ensite 000-default.conf && a2enmod rewrite && a2enmod ssl && a2enmod headers
 
-# Add user erpbox and copy project
+# Add user and copy project
 RUN usermod -u 1000 www-data
 
 FROM php-with-code AS php-ci

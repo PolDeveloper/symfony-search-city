@@ -1,4 +1,4 @@
-App\Entity\SearchCity:
+App\Model\SearchCity:
     properties:
         city:
             - NotBlank: ~

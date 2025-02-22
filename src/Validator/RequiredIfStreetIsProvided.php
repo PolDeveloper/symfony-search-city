@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * All Rights Reserved
+ * @copyright Copyright (C) Michal Talar
+ */
+
 namespace App\Validator;
 
 use Symfony\Component\Validator\Constraint;

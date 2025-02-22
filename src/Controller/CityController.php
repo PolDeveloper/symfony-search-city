@@ -1,13 +1,18 @@
 <?php
 
+/**
+ * All Rights Reserved
+ * @copyright Copyright (C) Michal Talar
+ */
+
 namespace App\Controller;
 
-use App\Entity\SearchCity;
+use App\Form\Type\SearchCityType;
+use App\Model\SearchCity;
 use App\Service\CityService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use App\Form\Type\SearchCityType;
 use Symfony\Component\Routing\Attribute\Route;
 
 class CityController extends AbstractController

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * All Rights Reserved
+ * @copyright Copyright (C) Michal Talar
+ */
+
 namespace App\Service;
 
 class CityService
@@ -18,12 +23,13 @@ class CityService
             'Kołobrzeg',
             'Kraków',
             'Opole',
-            'Wrocław'
+            'Wrocław',
         ];
     }
 
     /**
      * @param string $searchCity
+     *
      * @return array
      */
     public function searchForCity(string $searchCity): array

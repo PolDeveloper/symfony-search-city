@@ -1,13 +1,17 @@
 <?php
 
-namespace App\Entity;
+/**
+ * All Rights Reserved
+ * @copyright Copyright (C) Michal Talar
+ */
+
+namespace App\Model;
 
 class SearchCity
 {
     protected string $city;
     protected ?string $street = null;
     protected ?string $postcode = null;
-
     public function getCity(): string
     {
         return $this->city;
