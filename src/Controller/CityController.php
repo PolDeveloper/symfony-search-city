@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CityController extends AbstractController
 {
-    #[Route('/', name: 'app_lucky_number', methods: ['GET', 'POST'])]
+    #[Route('/', name: 'search_index', methods: ['GET', 'POST'])]
     public function search(Request $request, CityService $cityService): Response
     {
         $searchCity = new SearchCity();
