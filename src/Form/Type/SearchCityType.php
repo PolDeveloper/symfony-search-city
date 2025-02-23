@@ -37,17 +37,11 @@ class SearchCityType extends AbstractType
                 ],
             ])
             ->add('Search', SubmitType::class, ['attr' => ['class' => 'btn btn-success']])
-            ->setRequired(false)
-        ;
+            ->setRequired(false);
         $builder->get('city')
             ->addModelTransformer(new CallbackTransformer(
-                function ($ucFirst) {
-                    return ucfirst(strtolower($ucFirst ?? ''));
-                },
-                function ($ucFirst) {
-                    return ucfirst(strtolower($ucFirst ?? ''));
-                },
-            ))
-        ;
+                fn($city) => $city,
+                fn($city) => ucfirst(strtolower($city ?? '')),
+            ));
     }
 }
