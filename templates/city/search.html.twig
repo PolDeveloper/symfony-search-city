@@ -7,8 +7,14 @@
         <div class="row">
             <div class="col-5">
                 <div class="form-control">
-                    {{ form_label(form.city) }}
-                    {{ form_widget(form.city) }}
+                    <div class="row">
+                        <div class="col-2">
+                            {{ form_label(form.city) }}
+                        </div>
+                        <div class="col-1">
+                            {{ form_widget(form.city) }}
+                        </div>
+                    </div>
                     <small>{{ form_help(form.city) }}</small>
                     <div class="form-error">
                         {{ form_errors(form.city) }}
@@ -19,8 +25,14 @@
         <div class="row">
             <div class="col-5">
                 <div class="form-control">
-                    {{ form_label(form.street) }}
-                    {{ form_widget(form.street) }}
+                    <div class="row">
+                        <div class="col-2">
+                            {{ form_label(form.street) }}
+                        </div>
+                        <div class="col-1">
+                            {{ form_widget(form.street) }}
+                        </div>
+                    </div>
                     <small>{{ form_help(form.street) }}</small>
                     <div class="form-error">
                         {{ form_errors(form.street) }}
@@ -31,8 +43,14 @@
         <div class="row">
             <div class="col-5">
                 <div class="form-control">
-                    {{ form_label(form.postcode) }}
-                    {{ form_widget(form.postcode) }}
+                    <div class="row">
+                        <div class="col-2">
+                            {{ form_label(form.postcode) }}
+                        </div>
+                        <div class="col-1">
+                            {{ form_widget(form.postcode) }}
+                        </div>
+                    </div>
                     <small>{{ form_help(form.postcode) }}</small>
                     <div class="form-error">
                         {{ form_errors(form.postcode) }}

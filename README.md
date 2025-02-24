@@ -10,6 +10,7 @@
 
 ## How to run
 - `cp .env .env.local`
+- fill in APP_SECRET to `.env.local`
 - `cp docker-compose.override-sample.yml docker-compose.override.yml`
 - adjust docker ports
 - `docker compose up -d`
